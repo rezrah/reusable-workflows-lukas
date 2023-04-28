@@ -1,4 +1,4 @@
-name: testing chache
+name: Testing Cache
 on:
   workflow_dispatch:
 jobs:
