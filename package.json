@@ -9,7 +9,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "test": "echo test",
+    "test": "echo test"
   },
   "devDependencies": {
     "@actions/github": "^5.1.1",
