@@ -31,7 +31,7 @@ jobs:
                ref: `tags/${ version }`,
           }
           console.log(tagParams)
-          const ref = await github.rest.git.getTag(tagParams)
+          const ref = await github.rest.git.getRef(tagParams)
           console.log(ref)
           /*
           github.rest.git.createRef({
