@@ -22,8 +22,8 @@ jobs:
       with:
         script: |
           const core = require('@actions/core');
-          const version = core.getInput('version', {required: true})
-          console.log(version)
+          # const version = core.getInput('version', {required: true})
+          console.log(inputs.version)
           # github.rest.git.createRef({
           #     owner: context.repo.owner,
           #     repo: context.repo.repo,
