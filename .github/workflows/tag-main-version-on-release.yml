@@ -14,7 +14,8 @@ on:
     inputs:
       version:
         required: true
-        type: number
+        type: string
+        default: 'v1.0.0'
         
 jobs: 
   tag-version:
@@ -41,7 +42,7 @@ jobs:
           console.log(sha)
           let majorTag
           // create major version tag
-          majorTag = await octokit.rest.git.createTag({
+          majorTag = await github.rest.git.createTag({
             ...context.repo,
             tag: `${prefix}${major}`,
             message: `Reference to version ${version}`,
