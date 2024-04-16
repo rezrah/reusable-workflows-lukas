@@ -25,11 +25,13 @@ jobs:
           console.log(version)
           const major = `${version}`.substring(0, version.indexOf("."))
           console.log(major)
-          const ref = await github.rest.git.getTag({
+          const tagParams = {
                owner: context.repo.owner,
                repo: context.repo.repo,
                ref: `tags/${ version }`,
-           })
+          }
+          console.log(tagParams)
+          const ref = await github.rest.git.getTag(tagParams)
           console.log(ref)
           /*
           github.rest.git.createRef({
