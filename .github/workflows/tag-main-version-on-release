@@ -1,0 +1,25 @@
+name: Tag version and mian version
+
+on:
+  workflow_call:
+    inputs:
+      version:
+        required: true
+        type: number
+  workflow_dispatch:
+    inputs:
+      version:
+        required: true
+        type: number
+        
+jobs: 
+  tag-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Tag version
+        run: git tag ${{ inputs.version }}
+      - name: Tag main version
+        run: |
+          MAJOR=`echo $version | cut -d. -f1`
+          git tag $MAJOR ${{ inputs.version }}^{commit}
