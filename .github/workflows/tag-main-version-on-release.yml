@@ -29,10 +29,9 @@ jobs:
           })
     - name: Update major version tag
       uses: actions/github-script@v7
-      env:
-        MAJOR: "${{echo $version | cut -d. -f1}}"
       with:
         script: |
+          const MAJOR = `${version}`.substring(0, version.indexOf("."))
           github.rest.git.createRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
