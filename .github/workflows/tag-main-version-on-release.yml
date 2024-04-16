@@ -37,7 +37,7 @@ jobs:
                ref: `tags/${ version }`,
           }
           console.log(tagParams)
-          const { data: {obj: {sha} } } = await github.rest.git.getRef(tagParams)
+          const { data: {object: {sha} } } = await github.rest.git.getRef(tagParams)
           console.log(sha)
           let majorTag
           // create major version tag
