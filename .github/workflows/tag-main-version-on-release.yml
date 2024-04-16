@@ -42,13 +42,15 @@ jobs:
           console.log(sha)
           let majorTag
           // create major version tag
-          majorTag = await github.rest.git.createTag({
+          const createTagParams = {
             ...context.repo,
             tag: `${prefix}${major}`,
             message: `Reference to version ${version}`,
             object: sha,
             type: 'commit'
-          })
+          }
+          majorTag = await github.rest.git.createTag(createTagParams)
+          console.log(majorTag)
     # - name: Update major version tag
     #   uses: actions/github-script@v7
     #   with:
