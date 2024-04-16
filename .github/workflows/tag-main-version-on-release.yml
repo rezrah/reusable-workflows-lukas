@@ -48,7 +48,7 @@ jobs:
             ref: `refs/tags/${prefix}${major}`,
             sha
           }
-          console.log("createRefParams', createRefParams)
+          console.log("createRefParams", createRefParams)
           majorTag = await github.rest.git.createRef(createRefParams)
           console.log(majorTag)
     # - name: Update major version tag
