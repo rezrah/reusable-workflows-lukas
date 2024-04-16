@@ -28,7 +28,7 @@ jobs:
           const ref = await github.rest.git.getTag({
                owner: context.repo.owner,
                repo: context.repo.repo,
-               ref: `refs/tags/${ version }`,
+               ref: `tags/${ version }`,
            })
           console.log(ref)
           /*
