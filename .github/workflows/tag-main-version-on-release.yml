@@ -22,36 +22,4 @@ jobs:
       uses: actions/github-script@v7
       with:
         script: |
-          // get inputs
-          const version = "${{ inputs.version }}"
-          const prefix = "${{ inputs.prefix }}"
-          console.log(version)
-
-          // extract major version number
-          const prefixRe = new RegExp(`\\b^${prefix}\\b`)
-          const major = `${version}`.replace(prefixRe, "").substring(0, version.indexOf("."))
-          console.log(major)
-
-          // retrieve info about input tag to get sha
-          core.info(`Retrieving info for tag ${version}...`)
-          const tagParams = {
-               owner: context.repo.owner,
-               repo: context.repo.repo,
-               ref: `tags/${ version }`,
-          }
-          console.log(tagParams)
-          const { data: {object: {sha} } } = await github.rest.git.getRef(tagParams)
-          console.log(sha)
-
-          // try to create major version tag
-          core.info(`Creating or updating major version ${major}...`)
-          let majorTag
-          // create major version tag
-          const createRefParams = {
-            ...context.repo,
-            ref: `refs/tags/${prefix}${major}`,
-            sha
-          }
-          console.log("createRefParams", createRefParams)
-          majorTag = await github.rest.git.createRef(createRefParams)
-          console.log(majorTag)
+          console.log('hello');
