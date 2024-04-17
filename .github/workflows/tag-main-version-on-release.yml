@@ -12,11 +12,11 @@ on:
         type: string
         default: 'v'
         
+permissions: write-all
+
 jobs: 
   tag-version:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
     - name: Create Tag
       uses: actions/github-script@v7
