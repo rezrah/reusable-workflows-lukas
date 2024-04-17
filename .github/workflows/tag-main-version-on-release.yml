@@ -26,7 +26,7 @@ jobs:
           const version = "${{ inputs.version }}"
           const prefix = "${{ inputs.prefix }}"
           console.log(version)
-          console.log("-----", context.repo, "-----")
+
           // extract major version number
           const prefixRe = new RegExp(`\\b^${prefix}\\b`)
           const major = `${version}`.replace(prefixRe, "").substring(0, version.indexOf("."))
