@@ -1,21 +1,16 @@
 name: Tag version and major version
 
 on:
-  workflow_call:
-    inputs:
-      version:
-        required: true
-        type: number
-      prefix:
-        required: false
-        type: string
-        default: 'v'
   workflow_dispatch:
     inputs:
       version:
         required: true
         type: string
         default: 'v1.0.0'
+      prefix:
+        required: false
+        type: string
+        default: 'v'
         
 jobs: 
   tag-version:
